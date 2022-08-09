@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 public class UserController {
 
@@ -15,7 +17,7 @@ public class UserController {
     IUserService userService;
 
     @GetMapping("/login")
-    public LoginDTO login(@RequestBody LoginDTOIn loginDTOIn) {
+    public LoginDTO login(@Valid @RequestBody LoginDTOIn loginDTOIn) {
         return userService.login(loginDTOIn);
     }
 
